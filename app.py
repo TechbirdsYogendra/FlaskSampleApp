@@ -17,11 +17,6 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 jwt = JWT(app, authenticate, identity_function)  # creates a end point /auth
 
-# Create database and all the tables.
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 
 api.add_resource(Item, "/item/<string:name>")
 api.add_resource(Store, "/store/<string:name>")
