@@ -1,5 +1,4 @@
-from datetime import timedelta
-
+import os
 from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt import JWT
@@ -15,7 +14,7 @@ app.secret_key = "yogendra"
 api = Api(app)
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL","sqlite:///data.db")
 jwt = JWT(app, authenticate, identity_function)  # creates a end point /auth
 
 
