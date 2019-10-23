@@ -8,7 +8,7 @@ from security import authenticate, identity as identity_function
 from resources.user import UserRegister, Users
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
-from home import Home
+from resources.home import Home
 
 app = Flask(__name__)
 app.secret_key = "yogendra"
