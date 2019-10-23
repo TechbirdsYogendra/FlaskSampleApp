@@ -5,4 +5,5 @@ from flask import render_template
 
 class Home(Resource):
     def get(self):
-        return render_template('home.html')
+        return "Welcome to Flask Application"
+        # render_template('home.html')
