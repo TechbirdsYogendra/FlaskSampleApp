@@ -14,9 +14,8 @@ app.secret_key = "yogendra"
 api = Api(app)
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL","sqlite:///data.db")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "sqlite:///data.db")
 jwt = JWT(app, authenticate, identity_function)  # creates a end point /auth
-
 
 api.add_resource(Item, "/item/<string:name>")
 api.add_resource(Store, "/store/<string:name>")
